@@ -3,12 +3,35 @@ layout: default
 title: Home
 ---
 
-# About Me
-I am an AI Researcher and Engineer focused on [Your Area of Interest].
+# 🤖 Mani Radhakrishnan
+**AI Researcher | Machine Learning Engineer**
 
-## Selected Projects
-* **Project 1**: A brief description of what this AI project does.
-* **Project 2**: Another cool repo.
+I build and research scalable AI systems. Currently focusing on [Your Focus, e.g., Large Language Models / Computer Vision].
 
-## Publications
-1. *Your Paper Title*, Conference Name 2024.
+---
+
+### 🛠 Technical Stack
+- **Languages:** Python (Expert), C++, CUDA, SQL
+- **Frameworks:** PyTorch, TensorFlow, HuggingFace, FastAPI
+- **Cloud/Ops:** Docker, Kubernetes, AWS, Git
+
+---
+
+### 🚀 Featured Projects
+#### [Project Name](https://github.com/maniradhakrishnan-dev/your-repo)
+*Brief one-line impact statement: e.g., "Optimized transformer inference speed by 40% using TensorRT."*
+
+#### [Project Name](https://github.com/maniradhakrishnan-dev/your-repo)
+*e.g., "Developed a custom RAG pipeline for private document analysis."*
+
+---
+
+### 🔬 Research Interests
+- Efficient Neural Architecture Search
+- Distributed Training of LLMs
+- [Add your third interest here]
+
+---
+
+### 📬 Connect
+[GitHub](https://github.com/maniradhakrishnan-dev) | [LinkedIn](YOUR_LINKEDIN_URL) | [Email](mailto:your-email@example.com)
