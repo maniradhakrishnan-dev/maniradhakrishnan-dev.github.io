@@ -1,0 +1,132 @@
+I am trying to setup a website using github ,I want to host my  Profile there.any alternative is good.But  I want a free version ,hgihly customizable.
+
+The insipiration comes from andrej karapthy website
+
+I need a webiste simple looking but hosting my journey there
+
+
+Create a webiste almost looks like a andrej karphy website using the provided details.
+
+
+
+I want a website that will have the following details. Try to create a responsive and good looking one
+
+
+Mani Radhakrishnan
+Building and Understanding Intelligence, Neural Networks are Cool.
+
+Linkedin https://www.linkedin.com/in/mani-radhakrishnan/
+github https://github.com/maniradhakrishnan-dev
+Blog <I will write this in future but keep an option,i will write in different areas and domains>
+mail id <maniradhakrishnan.search@gmail.com>
+
+Bio ,
+AI & Robotics Systems Engineer specializing in Physical AI and
+the software-driven autonomy of robotic systems. Expert in bridging
+the gap between high-level intelligence (LLMs, Vision AI, Multimodal
+AI) and low-level hardware execution. Proven track record in
+developing end-to-end software pipelines, including sensor fusion,
+computer vision, and real-time autonomous controls. Actively
+implementing Frontier AI and Agentic design patterns to enable
+advanced reasoning and decision-making within physical
+environments. Seeking to leverage deep expertise in AI-driven
+robotics and autonomous software architecture to build the next
+generation of intelligent machines.
+
+Core Intersts
+Interested in Research and engineering of frontier models also deep interest in understaing how the frotier models actually work(interpretability)
+
+Interested in engineering the  frontier models and all its applications of it in didital space ,in robotics ,in biology and more.
+
+Intersted in implementing agentic system to solve the problem .
+
+PROFESSIONAL EXPERIENCE
+
+AI Researcher / Engineer
+Independent | 2024-Present
+Computer Vision & CNNs: Successfully implemented and trained YOLO architectures (utilizing
+ResNet-based residual learning) for real-time object detection, optimizing deep convolutional
+stacks for high-accuracy spatial localization.
+Large Language Model Architecture: Developed a deep, architectural-level understanding of
+transformer based LLMs by implementing the GPT-2 pipeline from scratch; inspired by Andrej
+Karpathy’s nanoGPT, engineered the custom tokenizer, multi-head self-attention mechanisms, and
+transformer blocks.
+Generative AI & Diffusion Transformers (DiT): Researched and implemented Diffusion Transformers
+to transcend traditional U-Net architectures, successfully training models for high-fidelity face
+generation and MNIST digit synthesis.
+Multimodal Development (CLIP): Developed and trained multimodal pipelines using CLIP
+(Contrastive Language-Image Pre-training) to align visual and textual embeddings, enabling
+advanced semantic search and zero-shot classification.
+Frontier Model Engineering & Orchestration: Architected and deployed local agentic workflows
+using OpenClaw and Ollama, orchestrating Frontier LLMs to solve complex business logic and highperformance automation challenges.
+Robotics Systems Engineer
+
+Green Robot Machinery Pvt Ltd| 2019-2024
+Utilized ROS as the primary framework to manage node communication and system-level data
+flow.
+Integrated Intel RealSense and OAK-D stereo cameras for environment perception and depth
+sensing.
+Trained and deployed YOLO models for real-time object detection and classification within the
+robotics pipeline.
+Developed and implemented the mathematical mapping to convert Vision AI camera
+coordinates into 3-DOF/4-DOF robot coordinate frames, enabling precise autonomous target
+acquisition.
+Developed software interfaces for Hardware I/O, mapping physical switches and sensors to control
+logic.
+Programmed and tuned BLDC motors using O-Drive controllers to achieve high-performance,
+precision motion.
+System Integration & Validation: Orchestrated the end-to-end integration of high-level AI software
+with low-level hardware, synchronizing Vision AI sensors, I/O switches, and BLDC motor controllers
+into a unified robotics stack. Executed a rigorous tiered testing strategy, performing both isolated
+component validation and full-system stress tests to identify and resolve complex hardwaresoftware bottlenecks. By debugging cross-platform interactions within the ROS/Linux environment,
+ensured maximum system reliability and the seamless translation of perception data into stable,
+real-world physical execution.
+Mechanical Design & Digital Twin Integration: Modeled system-level assemblies and precision
+components in SolidWorks to generate accurate URDF models, ensuring a high-fidelity bridge
+between physical hardware and software simulation. By maintaining strict dimensional accuracy
+in the design phase, eliminated mechanical interference and achieved seamless hardwaresoftware synchronization within the robotics control environment.
+Robotics Mechanical Engineer
+
+Suriyan Innovatives LLP | 2017 – 2019
+Iterative Robotics Development: Engineered multiple generations of 3-DOF robotic manipulators,
+evolving from Spherical to Polar coordinate architectures through rigorous R&D and over 3 years
+of field-trial feedback.
+Full-Lifecycle Design (DfM): Owned the complete hardware stack from scratch—designing
+structural frames, aesthetic covers, and internal sub-assemblies in SolidWorks with a focus on Design
+for Manufacturing (DfM).
+Multi-Process Fabrication: Expertly utilized a hybrid manufacturing approach, including precision
+CNC machining, complex Sheet Metal design, and rapid 3D printing to accelerate prototyping
+cycles and final production.
+Field Reliability & Assembly: Managed the full assembly and validation process, conducting
+extensive stress tests and field trials to ensure mechanical durability and sub-millimeter dimensional
+accuracy in high-stakes operatio nal environments.
+
+Bachelor’s degree
+• B.E-Mechanical
+Velammal Institute of
+Technology, Chennai
+
+
+Publications
+
+
+
+
+In hobbies
+
+Books Review
+
+New Tech Exploration
+
+BLockchain
+
+Quantum Computing
+
+Exploaring Biology frontier
+
+
+Economics
+
+I want to write and explore in all these areas so keep an option
+
+
