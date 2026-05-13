@@ -1,0 +1,24 @@
+Bio,
+AI Researcher and Engineer dedicated to building and understanding intelligence. 
+My work focuses on architecting, engineering, and scaling frontier foundation models, 
+with a specific emphasis on their expansive applications within digital ecosystems and agentic systems. 
+I maintain a broad research interest in AI’s transformative potential across domains such as robotics and biology.
+
+
+PROFESSIONAL EXPERIENCE
+
+AI Researcher / Engineer
+Self-Directed | 2024-Present
+
+Robtics System Engineer
+Green Robot Machinery Pvt Ltd| 2019-2024
+
+Robotics Mechanical Engineer
+Suriyan Innovatives LLP | 2017 – 2019
+
+
+EDUCATION
+Bachelor’s degree
+• B.E-Mechanical
+Velammal Institute of
+Technology, Chennai

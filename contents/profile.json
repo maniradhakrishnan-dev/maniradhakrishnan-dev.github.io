@@ -1,0 +1,41 @@
+{
+    "basics": {
+        "name": "Mani Radhakrishnan",
+        "tagline": "Understand and Build Intelligent System",
+        "label": "AI Researcher & Engineer",
+        "image": "assets/img/mypic.jpg",
+        "summary_file": "contents/bio.txt",
+    },
+    "education": [
+        {
+            "degree": "B.Tech in Mechanical Engineering",
+            "score": "8.0 CGPA"
+        }
+    ],
+    "research_interests": [
+        "Digital AI (AGI)",
+        "Physical AI (Embodied AI)",
+        "Living AI (Intersection of Biology & AI)"
+    ],
+    "Other Interests": [
+        "Neuroscience",
+        "Biology",
+        "Quantum Computing",
+    ],
+    "navigation": [
+        {
+            "name": "Blog",
+            "link": "#blog",
+            "data_path": "contents/blog/Bigcorporate vs CountryEconomy.txt`"
+        },
+        {
+            "name": "Books",
+            "link": "#books",
+            "data_path": "contents/books/book_review.txt"
+        }
+    ],
+    "socials": {
+        "github": "maniradhakrishnan-dev.github.io",
+        "linkedin": "www.linkedin.com/in/mani-radhakrishnan"
+    }
+}

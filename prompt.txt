@@ -1,0 +1,10 @@
+I am trying to setup a website using github ,I want to host my  Profile there.I want a free version ,highly customizable.
+The insipiration comes from andrej karapthy website
+I need a webiste simple looking but hosting my journey there inlcuding putting my blogs ,review ,thoughts etc
+
+
+Create a webiste almost looks like a andrej karapthy website using the provided details.
+
+
+
+I want a website that will have the following details. Try to create a responsive and good looking one

@@ -1,212 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mani Radhakrishnan</title>
-    <meta name="description" content="Mani Radhakrishnan - AI & Robotics Systems Engineer specializing in Physical AI and autonomous software.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
-    <div class="background-glow"></div>
-    <div class="container fade-in">
-        <header class="header">
-            <div class="header-content">
-                <h1>Mani Radhakrishnan</h1>
-                <p class="subtitle">Building and Understanding Intelligence, Neural Networks are Cool.</p>
-                <div class="links">
-                    <a href="https://www.linkedin.com/in/mani-radhakrishnan/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-                    <a href="https://github.com/maniradhakrishnan-dev" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-                    <a href="#" onclick="openModal('blog'); return false;" class="social-link">Blog</a>
-                    <a href="mailto:maniradhakrishnan.search@gmail.com" class="social-link">Email</a>
-                </div>
-            </div>
-            <!-- Profile Image -->
-            <div class="profile-image-container">
-                <img src="mypic.jpg" alt="Mani Radhakrishnan" class="profile-image">
-            </div>
+    <div class="container">
+        <header>
+            <img id="profile-pic" src="" alt="Mani Radhakrishnan" class="profile-img">
+            <h1 id="name"></h1>
+            <p id="tagline" class="tagline"></p>
+            <nav class="links" id="nav-links"></nav>
         </header>
 
-        <section class="bio section-block slide-up" style="animation-delay: 0.1s;">
-            <p><strong>AI & Robotics Systems Engineer</strong> specializing in Physical AI and the software-driven autonomy of robotic systems. Expert in bridging the gap between high-level intelligence (LLMs, Vision AI, Multimodal AI) and low-level hardware execution. Proven track record in developing end-to-end software pipelines, including sensor fusion, computer vision, and real-time autonomous controls. Actively implementing Frontier AI and Agentic design patterns to enable advanced reasoning and decision-making within physical environments. Seeking to leverage deep expertise in AI-driven robotics and autonomous software architecture to build the next generation of intelligent machines.</p>
+        <section id="bio" class="main-text"></section>
+
+        <section class="content-section">
+            <h2>Blockchain</h2>
+            <ul id="blockchain-list"></ul>
         </section>
 
-        <section class="section-block slide-up" style="animation-delay: 0.2s;">
-            <h2>Core Interests</h2>
-            <ul class="interest-list">
-                <li>Research and engineering of frontier models; deep interest in understanding how frontier models actually work (interpretability).</li>
-                <li>Engineering frontier models and all applications in digital space, robotics, biology, and more.</li>
-                <li>Implementing agentic systems to solve complex problems.</li>
-            </ul>
+        <section class="content-section">
+            <h2>Biology</h2>
+            <ul id="biology-list"></ul>
         </section>
 
-        <section class="section-block slide-up" style="animation-delay: 0.3s;">
-            <h2>Professional Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>AI Researcher / Engineer</h3>
-                    <span class="experience-meta">Independent | 2024 - Present</span>
-                </div>
-                <ul class="experience-details">
-                    <li><strong>Computer Vision & CNNs:</strong> Successfully implemented and trained YOLO architectures (utilizing ResNet-based residual learning) for real-time object detection, optimizing deep convolutional stacks for high-accuracy spatial localization.</li>
-                    <li><strong>Large Language Model Architecture:</strong> Developed a deep, architectural-level understanding of transformer-based LLMs by implementing the GPT-2 pipeline from scratch; inspired by Andrej Karpathy's nanoGPT, engineered the custom tokenizer, multi-head self-attention mechanisms, and transformer blocks.</li>
-                    <li><strong>Generative AI & Diffusion Transformers (DiT):</strong> Researched and implemented Diffusion Transformers to transcend traditional U-Net architectures, successfully training models for high-fidelity face generation and MNIST digit synthesis.</li>
-                    <li><strong>Multimodal Development (CLIP):</strong> Developed and trained multimodal pipelines using CLIP to align visual and textual embeddings, enabling advanced semantic search and zero-shot classification.</li>
-                    <li><strong>Frontier Model Engineering & Orchestration:</strong> Architected and deployed local agentic workflows using OpenClaw and Ollama, orchestrating Frontier LLMs to solve complex business logic and high-performance automation challenges.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Robotics Systems Engineer</h3>
-                    <span class="experience-meta">Green Robot Machinery Pvt Ltd | 2019 - 2024</span>
-                </div>
-                <ul class="experience-details">
-                    <li>Utilized ROS as the primary framework to manage node communication and system-level data flow.</li>
-                    <li>Integrated Intel RealSense and OAK-D stereo cameras for environment perception and depth sensing.</li>
-                    <li>Trained and deployed YOLO models for real-time object detection and classification within the robotics pipeline.</li>
-                    <li>Developed and implemented the mathematical mapping to convert Vision AI camera coordinates into 3-DOF/4-DOF robot coordinate frames, enabling precise autonomous target acquisition.</li>
-                    <li>Developed software interfaces for Hardware I/O, mapping physical switches and sensors to control logic.</li>
-                    <li>Programmed and tuned BLDC motors using O-Drive controllers to achieve high-performance, precision motion.</li>
-                    <li><strong>System Integration & Validation:</strong> Orchestrated the end-to-end integration of high-level AI software with low-level hardware. Executed rigorous tiered testing to resolve hardware-software bottlenecks, ensuring maximum system reliability.</li>
-                    <li><strong>Mechanical Design & Digital Twin Integration:</strong> Modeled system-level assemblies and precision components in SolidWorks to generate accurate URDF models, ensuring a high-fidelity bridge between physical hardware and software simulation.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Robotics Mechanical Engineer</h3>
-                    <span class="experience-meta">Suriyan Innovatives LLP | 2017 - 2019</span>
-                </div>
-                <ul class="experience-details">
-                    <li><strong>Iterative Robotics Development:</strong> Engineered multiple generations of 3-DOF robotic manipulators, evolving from Spherical to Polar coordinate architectures through rigorous R&D and over 3 years of field-trial feedback.</li>
-                    <li><strong>Full-Lifecycle Design (DfM):</strong> Owned the complete hardware stack from scratch—designing structural frames, aesthetic covers, and internal sub-assemblies in SolidWorks with a focus on Design for Manufacturing.</li>
-                    <li><strong>Multi-Process Fabrication:</strong> Expertly utilized a hybrid manufacturing approach, including precision CNC machining, complex Sheet Metal design, and rapid 3D printing.</li>
-                    <li><strong>Field Reliability & Assembly:</strong> Managed the full assembly and validation process, conducting extensive stress tests and field trials to ensure mechanical durability and sub-millimeter dimensional accuracy.</li>
-                </ul>
-            </div>
+        <section class="content-section">
+            <h2>Quantum Computing</h2>
+            <ul id="quantum-list"></ul>
         </section>
 
-        <div class="grid-section">
-            <section class="section-block slide-up" style="animation-delay: 0.4s;">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>B.E - Mechanical Engineering</h3>
-                    <p class="education-meta">Velammal Institute of Technology, Chennai</p>
-                </div>
-            </section>
-
-            <section class="section-block slide-up" style="animation-delay: 0.5s;">
-                <h2>Publications</h2>
-                <p class="placeholder-text">Research and publications coming soon.</p>
-            </section>
-        </div>
-
-        <section class="section-block slide-up" style="animation-delay: 0.6s;">
-            <h2>Hobbies & Writing Areas</h2>
-            <div class="tags-container">
-                <span class="tag" onclick="openModal('books')">Books Review</span>
-                <span class="tag" onclick="openModal('tech')">New Tech Exploration</span>
-                <span class="tag" onclick="openModal('blockchain')">Blockchain</span>
-                <span class="tag" onclick="openModal('quantum')">Quantum Computing</span>
-                <span class="tag" onclick="openModal('biology')">Exploring Biology Frontier</span>
-                <span class="tag" onclick="openModal('economics')">Economics</span>
-            </div>
+        <section class="content-section">
+            <h2>Economics</h2>
+            <ul id="economics-list"></ul>
         </section>
 
-        <footer class="footer">
-            <p>&copy; 2024 Mani Radhakrishnan. Inspired by minimalist design, built for the future.</p>
+        <footer>
+            <p id="footer-text"></p>
         </footer>
     </div>
 
-    <!-- Modal Background -->
-    <div id="contentModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Title</h2>
-            <div id="modalBody">
-                <!-- Content will be injected here by JS -->
-            </div>
+    <div id="reader-modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
         </div>
     </div>
 
     <script>
-        const contentData = {
-            'blog': {
-                title: 'Mani Radhakrishnan Blogs',
-                body: `
-                    <div class="experience-item" style="margin-top:20px; border:none; background:transparent; padding:0;">
-                        <div class="experience-header">
-                            <h3>Big Corporate vs Country Economy</h3>
-                            <span class="experience-meta">Economics | Tech</span>
-                        </div>
-                        <div class="bio">
-                            <p>It is a blog about big corporations of USA vs Other country economy. An analysis of the market capitalization and influence of tech giants like:</p>
-                            <ul class="experience-details" style="margin-top: 10px;">
-                                <li>Apple</li><li>Microsoft</li><li>Google</li><li>Meta</li><li>OpenAI</li><li>SpaceX</li><li>NVIDIA</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>Vs Other Country Economy</strong></p>
-                        </div>
-                    </div>
-                `
-            },
-            'books': {
-                title: 'Mani Radhakrishnan Book Reviews',
-                body: `
-                    <div class="experience-item" style="margin-top:20px; border:none; background:transparent; padding:0;">
-                        <div class="experience-header">
-                            <h3>The Infinity Machine – The Quest for Artificial General Intelligence</h3>
-                            <span class="experience-meta">AI & Neurobiology</span>
-                        </div>
-                        <div class="bio">
-                            <p>The Infinity Machine serves as a definitive chronicle of the most ambitious scientific endeavor of our time: the creation of Artificial General Intelligence (AGI). It tracks the evolution of DeepMind, the London-based research lab that transformed from a niche startup into the undisputed powerhouse of the AI world. The book is not merely a technical manual, but a human-centric drama exploring the intersection of neurobiology, competitive gaming, and the future of humanity.</p>
-                            <p style="margin-top: 15px;"><strong>The Blueprint of a Revolution</strong><br>The narrative unfolds by detailing how the founders fused "top-down" symbolic logic with "bottom-up" neural networks, inspired by the inner workings of the human brain. The book masterfully explains complex milestones—such as the reinforcement learning that allowed AI to master Atari games—not just as coding feats, but as the first steps toward a machine that can "think" across domains.</p>
-                            <p style="margin-top: 15px;"><strong>The Architect: Demis Hassabis</strong><br>A significant portion of the book centers on Demis Hassabis, the polymath co-founder whose life story reads like a blueprint for the AI era. The text paints a portrait of a former child chess prodigy and video game designer who viewed every stage of his career as a stepping stone toward a singular goal: solving "intelligence" to then solve everything else. Hassabis is presented as the bridge between two worlds. With a PhD in cognitive neuroscience, he insisted that for AI to be truly "general," it must emulate biological mechanisms like memory consolidation and imagination. The book highlights his unique leadership style—a blend of "Apollo Program" intensity and a relaxed, academic atmosphere. It captures his pivotal role in the high-stakes negotiations with Google, his legendary composure during the AlphaGo matches in Seoul, and his unwavering belief that AGI, if handled ethically, is the ultimate tool for scientific discovery.</p>
-                            <p style="margin-top: 15px;"><strong>Beyond the Board Game</strong><br>While the AlphaGo victory serves as the book's emotional climax, the review looks forward to the practical applications of this technology. From solving the 50-year-old "protein folding" problem with AlphaFold to its potential in climate modeling and material science, the book argues that Hassabis’s "Infinity Machine" is less about replacing humans and more about expanding the horizons of what we can understand.</p>
-                            <p style="margin-top: 15px;"><strong>Verdict</strong><br>The Infinity Machine is an essential read for anyone trying to understand the current AI gold rush. It moves beyond the hype to show the rigorous, decades-long intellectual journey required to build a machine that doesn't just calculate, but discovers. For those interested in the philosophy of mind and the business of world-changing innovation, Hassabis’s journey provides a masterclass in visionary thinking.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'tech': { title: 'New Tech Exploration', body: '<p class="placeholder-text" style="text-align:center; padding: 40px 0; font-size:1.1rem; font-weight:bold; letter-spacing:1px;">WAITING TO BE WRITTEN AND EXPLORED</p>' },
-            'blockchain': { title: 'Blockchain', body: '<p class="placeholder-text" style="text-align:center; padding: 40px 0; font-size:1.1rem; font-weight:bold; letter-spacing:1px;">WAITING TO BE WRITTEN AND EXPLORED</p>' },
-            'quantum': { title: 'Quantum Computing', body: '<p class="placeholder-text" style="text-align:center; padding: 40px 0; font-size:1.1rem; font-weight:bold; letter-spacing:1px;">WAITING TO BE WRITTEN AND EXPLORED</p>' },
-            'biology': { title: 'Exploring Biology Frontier', body: '<p class="placeholder-text" style="text-align:center; padding: 40px 0; font-size:1.1rem; font-weight:bold; letter-spacing:1px;">WAITING TO BE WRITTEN AND EXPLORED</p>' },
-            'economics': { title: 'Economics', body: '<p class="placeholder-text" style="text-align:center; padding: 40px 0; font-size:1.1rem; font-weight:bold; letter-spacing:1px;">WAITING TO BE WRITTEN AND EXPLORED</p>' }
-        };
+        async function init() {
+            try {
+                const res = await fetch('contents/profile.json');
+                const data = await res.json();
 
-        const modal = document.getElementById("contentModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalBody = document.getElementById("modalBody");
+                // Basics & Image 
+                document.getElementById('name').textContent = data.basics.name;
+                document.getElementById('tagline').textContent = data.basics.tagline;
+                document.getElementById('profile-pic').src = data.basics.image;
+                document.getElementById('footer-text').textContent = `© 2026 ${data.basics.name}`;
 
-        function openModal(topic) {
-            const data = contentData[topic];
-            if(data) {
-                modalTitle.innerText = data.title;
-                modalBody.innerHTML = data.body;
-                modal.style.display = "block";
-                
-                // Add fade-in effect to modal content
-                const content = modal.querySelector('.modal-content');
-                content.classList.remove("slide-up");
-                void content.offsetWidth; // trigger reflow
-                content.classList.add("slide-up");
-            }
+                // Bio 
+                const bioRes = await fetch(data.basics.summary_file);
+                document.getElementById('bio').textContent = await bioRes.text();
+
+                // Navigation 
+                const nav = document.getElementById('nav-links');
+                data.navigation.forEach(item => {
+                    const a = document.createElement('a');
+                    a.href = "#";
+                    a.textContent = item.name;
+                    a.onclick = () => loadContent(item.data_path);
+                    nav.appendChild(a);
+                });
+
+                // Mapping files to the sections you requested
+                setupList('blockchain-list', [{ name: 'Notes on Decentralization', path: 'contents/blockchain/notes.txt' }]);
+                setupList('biology-list', [{ name: 'Living AI & Neuroscience', path: 'contents/interests/biology.txt' }]);
+                setupList('quantum-list', [{ name: 'Quantum Gate Exploration', path: 'contents/tech/quantum.txt' }]);
+                setupList('economics-list', [{ name: 'Corporate vs Country Economy', path: 'contents/blog/Big corporate vs Country Economy' }]);
+
+            } catch (e) { console.error("Error loading profile:", e); }
+        }
+
+        function setupList(elementId, items) {
+            const list = document.getElementById(elementId);
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#" class="item-link" onclick="loadContent('${item.path}')">${item.name}</a>`;
+                list.appendChild(li);
+            });
+        }
+
+        async function loadContent(path) {
+            const res = await fetch(path);
+            const text = await res.text();
+            document.getElementById('modal-body').innerHTML = `<pre class="modal-text">${text}</pre>`;
+            document.getElementById('reader-modal').style.display = "block";
         }
 
         function closeModal() {
-            modal.style.display = "none";
+            document.getElementById('reader-modal').style.display = "none";
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        init();
     </script>
 </body>
+
 </html>
