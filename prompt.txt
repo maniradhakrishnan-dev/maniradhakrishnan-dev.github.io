@@ -7,4 +7,3 @@ Create a webiste almost looks like a andrej karapthy website using the provided 
 
 
 
-I want a website that will have the following details. Try to create a responsive and good looking one

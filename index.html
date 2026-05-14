@@ -4,40 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mani Radhakrishnan</title>
+    <title>Mani Radhakrishnan | AI Researcher & Engineer</title>
+    <meta name="description" content="Personal website of Mani Radhakrishnan, an AI Researcher and Engineer focused on building and understanding intelligent systems.">
+    <meta name="keywords" content="AI, Machine Learning, Robotics, AGI, Embodied AI, Research">
+    <meta property="og:title" content="Mani Radhakrishnan">
+    <meta property="og:description" content="AI Researcher & Engineer building frontier foundation models.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <img id="profile-pic" src="" alt="Mani Radhakrishnan" class="profile-img">
-            <h1 id="name"></h1>
-            <p id="tagline" class="tagline"></p>
-            <nav class="links" id="nav-links"></nav>
+            <div class="profile-container">
+                <img id="profile-pic" src="" alt="Mani Radhakrishnan" class="profile-img">
+                <div class="header-info">
+                    <h1 id="name"></h1>
+                    <p id="tagline" class="tagline"></p>
+                    <div class="social-links" id="social-links"></div>
+                </div>
+            </div>
         </header>
 
         <section id="bio" class="main-text"></section>
 
-        <section class="content-section">
-            <h2>Blockchain</h2>
-            <ul id="blockchain-list"></ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Biology</h2>
-            <ul id="biology-list"></ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Quantum Computing</h2>
-            <ul id="quantum-list"></ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Economics</h2>
-            <ul id="economics-list"></ul>
-        </section>
+        <div id="content-areas">
+            <!-- Categories will be injected here -->
+        </div>
 
         <footer>
             <p id="footer-text"></p>
@@ -55,56 +48,105 @@
         async function init() {
             try {
                 const res = await fetch('contents/profile.json');
+                if (!res.ok) throw new Error('Could not find profile.json');
                 const data = await res.json();
 
-                // Basics & Image 
                 document.getElementById('name').textContent = data.basics.name;
                 document.getElementById('tagline').textContent = data.basics.tagline;
                 document.getElementById('profile-pic').src = data.basics.image;
-                document.getElementById('footer-text').textContent = `© 2026 ${data.basics.name}`;
+                document.getElementById('footer-text').textContent = `© ${new Date().getFullYear()} ${data.basics.name}`;
 
-                // Bio 
-                const bioRes = await fetch(data.basics.summary_file);
-                document.getElementById('bio').textContent = await bioRes.text();
-
-                // Navigation 
-                const nav = document.getElementById('nav-links');
-                data.navigation.forEach(item => {
+                // Setup Socials
+                const socials = document.getElementById('social-links');
+                Object.entries(data.socials).forEach(([key, value]) => {
                     const a = document.createElement('a');
-                    a.href = "#";
-                    a.textContent = item.name;
-                    a.onclick = () => loadContent(item.data_path);
-                    nav.appendChild(a);
+                    a.href = key === 'mail' ? `mailto:${value}` : (value.startsWith('http') ? value : `https://${value}`);
+                    a.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                    a.target = "_blank";
+                    socials.appendChild(a);
                 });
 
-                // Mapping files to the sections you requested
-                setupList('blockchain-list', [{ name: 'Notes on Decentralization', path: 'contents/blockchain/notes.txt' }]);
-                setupList('biology-list', [{ name: 'Living AI & Neuroscience', path: 'contents/interests/biology.txt' }]);
-                setupList('quantum-list', [{ name: 'Quantum Gate Exploration', path: 'contents/tech/quantum.txt' }]);
-                setupList('economics-list', [{ name: 'Corporate vs Country Economy', path: 'contents/blog/Big corporate vs Country Economy' }]);
+                // Fetch and clean Bio
+                const bioRes = await fetch(data.basics.summary_file);
+                if (bioRes.ok) {
+                    const bioRaw = await bioRes.text();
+                    document.getElementById('bio').textContent = bioRaw.trim();
+                }
 
-            } catch (e) { console.error("Error loading profile:", e); }
-        }
+                // Setup Content Sections dynamically from profile.json
+                const contentAreas = document.getElementById('content-areas');
+                if (data.content_sections) {
+                    data.content_sections.forEach(cat => {
+                        const section = document.createElement('section');
+                        section.innerHTML = `
+                            <h2>${cat.title}</h2>
+                            <ul id="${cat.id}-list"></ul>
+                        `;
+                        contentAreas.appendChild(section);
+                        
+                        const list = section.querySelector('ul');
+                        cat.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<a href="#" class="item-link" onclick="event.preventDefault(); loadContent('${item.path}')">${item.name}</a>`;
+                            list.appendChild(li);
+                        });
+                    });
+                }
 
-        function setupList(elementId, items) {
-            const list = document.getElementById(elementId);
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="#" class="item-link" onclick="loadContent('${item.path}')">${item.name}</a>`;
-                list.appendChild(li);
-            });
+                // Add Experience section
+                if (data.experience) {
+                    const expSection = document.createElement('section');
+                    expSection.innerHTML = `<h2>Experience</h2><ul id="exp-list"></ul>`;
+                    contentAreas.appendChild(expSection);
+                    const expList = expSection.querySelector('ul');
+                    data.experience.forEach(exp => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="item-meta">${exp.period}</span> <span><strong>${exp.role}</strong>, ${exp.company}</span>`;
+                        expList.appendChild(li);
+                    });
+                }
+
+                // Add Education section
+                if (data.education) {
+                    const eduSection = document.createElement('section');
+                    eduSection.innerHTML = `<h2>Education</h2><ul id="edu-list"></ul>`;
+                    contentAreas.appendChild(eduSection);
+                    const eduList = eduSection.querySelector('ul');
+                    data.education.forEach(edu => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="item-meta">${edu.score}</span> <span>${edu.degree}</span>`;
+                        eduList.appendChild(li);
+                    });
+                }
+
+            } catch (err) {
+                console.error("Initialization Error:", err);
+                document.getElementById('bio').textContent = "Failed to load content. Please check the console for details.";
+            }
         }
 
         async function loadContent(path) {
-            const res = await fetch(path);
-            const text = await res.text();
-            document.getElementById('modal-body').innerHTML = `<pre class="modal-text">${text}</pre>`;
-            document.getElementById('reader-modal').style.display = "block";
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error('File not found');
+                const text = await res.text();
+                document.getElementById('modal-body').innerHTML = `<div class="modal-text">${text}</div>`;
+                document.getElementById('reader-modal').style.display = "block";
+                document.body.style.overflow = "hidden";
+            } catch (e) {
+                console.error("Content Load Error:", e);
+                alert("Could not load: " + path);
+            }
         }
 
         function closeModal() {
             document.getElementById('reader-modal').style.display = "none";
+            document.body.style.overflow = "auto";
         }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
 
         init();
     </script>

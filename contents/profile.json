@@ -1,41 +1,53 @@
 {
     "basics": {
         "name": "Mani Radhakrishnan",
-        "tagline": "Understand and Build Intelligent System",
+        "tagline": "Building and Understanding Intelligent Systems",
         "label": "AI Researcher & Engineer",
         "image": "assets/img/mypic.jpg",
-        "summary_file": "contents/bio.txt",
+        "summary_file": "contents/bio.txt"
     },
+    "socials": {
+        "mail": "maniradhakrishnan.search@gmail.com",
+        "github": "maniradhakrishnan-dev.github.io",
+        "linkedin": "www.linkedin.com/in/mani-radhakrishnan"
+    },
+    "content_sections": [
+        {
+            "id": "blog",
+            "title": "Blog & Thoughts",
+            "items": [
+                { "name": "Big Corporate vs Country Economy", "path": "contents/blog/Bigcorporate vs CountryEconomy.txt" }
+            ]
+        },
+        {
+            "id": "interests",
+            "title": "Interests & Reviews",
+            "items": [
+                { "name": "Book Reviews", "path": "contents/books/book_review" }
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "role": "AI Researcher / Engineer",
+            "company": "Self-Directed",
+            "period": "2024-Present"
+        },
+        {
+            "role": "Robotics System Engineer",
+            "company": "Green Robot Machinery Pvt Ltd",
+            "period": "2019-2024"
+        },
+        {
+            "role": "Robotics Mechanical Engineer",
+            "company": "Suriyan Innovatives LLP",
+            "period": "2017-2019"
+        }
+    ],
     "education": [
         {
             "degree": "B.Tech in Mechanical Engineering",
             "score": "8.0 CGPA"
         }
-    ],
-    "research_interests": [
-        "Digital AI (AGI)",
-        "Physical AI (Embodied AI)",
-        "Living AI (Intersection of Biology & AI)"
-    ],
-    "Other Interests": [
-        "Neuroscience",
-        "Biology",
-        "Quantum Computing",
-    ],
-    "navigation": [
-        {
-            "name": "Blog",
-            "link": "#blog",
-            "data_path": "contents/blog/Bigcorporate vs CountryEconomy.txt`"
-        },
-        {
-            "name": "Books",
-            "link": "#books",
-            "data_path": "contents/books/book_review.txt"
-        }
-    ],
-    "socials": {
-        "github": "maniradhakrishnan-dev.github.io",
-        "linkedin": "www.linkedin.com/in/mani-radhakrishnan"
-    }
+    ]
 }
