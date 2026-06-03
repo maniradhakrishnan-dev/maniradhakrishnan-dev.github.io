@@ -1,6 +1,6 @@
 {
     "basics": {
-        "name": "Mani Radhakrishnan",
+        "name": "Mani Radhakrishnan 🧠",
         "tagline": "Building and Understanding Intelligent Systems",
         "label": "AI Researcher & Engineer",
         "image": "assets/img/mypic.jpg",
@@ -14,12 +14,12 @@
     "experience": [
         {
             "role": "Agentic AI Engineer",
-            "company": "In-Progress",
+            "company": "Extensive Agentic AI Program ,TSAI",
             "period": "2026-Present"
         },
         {
             "role": "AI Researcher / Engineer",
-            "company": "Self-Directed",
+            "company": "Independent Researcher",
             "period": "2023-2026"
         },
         {
@@ -42,7 +42,6 @@
         },
         {
             "degree": "HSC (Bio, Math)",
-            "school": "Govt.Boys.Hr.Sec.School, Kallakurichi",
             "period": "2011-2013",
             "meta": "93.08 %"
         }
@@ -52,14 +51,20 @@
             "id": "blog",
             "title": "Blogs and Thoughts",
             "items": [
-                { "name": "Big Corporate vs Country Economy", "path": "contents/blog/Bigcorporate vs CountryEconomy.txt" }
+                {
+                    "name": "Big Corporate vs Country Economy",
+                    "path": "contents/blog/Bigcorporate vs CountryEconomy.txt"
+                }
             ]
         },
         {
             "id": "interests",
             "title": "Interests and Reviews",
             "items": [
-                { "name": "Books", "path": "contents/books/book_review" }
+                {
+                    "name": "Books",
+                    "path": "contents/books/book_review"
+                }
             ]
         },
         {

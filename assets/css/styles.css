@@ -1,7 +1,7 @@
 :root {
     --bg: #ffffff;
     --text: #111111;
-    --link: #0000ee;
+    --link: #2563eb;
     --meta: #666666;
     --border: #eeeeee;
     --hover-bg: #f9f9f9;
@@ -11,30 +11,30 @@
 [data-theme="light"] {
     --bg: #ffffff;
     --text: #111111;
-    --link: #0000ee;
+    --link: #2563eb;
     --meta: #666666;
     --border: #eeeeee;
 }
 
 /* Explicit Dark Theme */
 [data-theme="dark"] {
-    --bg: #111111;
-    --text: #eeeeee;
+    --bg: #0d1117;
+    --text: #c9d1d9;
     --link: #58a6ff;
     --meta: #8b949e;
-    --border: #30363d;
-    --hover-bg: #1c1c1c;
+    --border: #31363c;
+    --hover-bg: #161b22;
 }
 
 /* Default Dark if system preferred and no explicit theme set */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --bg: #111111;
-        --text: #eeeeee;
+        --bg: #0d1117;
+        --text: #c9d1d9;
         --link: #58a6ff;
         --meta: #8b949e;
-        --border: #30363d;
-        --hover-bg: #1c1c1c;
+        --border: #31363c;
+        --hover-bg: #161b22;
     }
 }
 
@@ -53,6 +53,61 @@ body {
     padding: 0 30px;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Background Styles */
+.bg-neural-network {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/nn.svg');
+    background-repeat: no-repeat;
+    background-position: 85% 25%;
+    background-size: 700px;
+    opacity: 0.025;
+    z-index: -2;
+    pointer-events: none;
+    transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+[data-theme="dark"] .bg-neural-network {
+    opacity: 0.045;
+    filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .bg-neural-network {
+        opacity: 0.045;
+        filter: invert(1);
+    }
+}
+
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.03), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.02), transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.5s ease;
+}
+
+[data-theme="dark"] .bg-glow {
+    background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05), transparent 55%),
+                radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.03), transparent 55%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .bg-glow {
+        background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05), transparent 55%),
+                    radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.03), transparent 55%);
+    }
 }
 
 header {
@@ -111,15 +166,13 @@ header {
     height: 130px;
     border-radius: 8px;
     object-fit: cover;
-    filter: grayscale(100%);
-    transition: filter 0.4s ease, transform 0.3s ease;
+    transition: transform 0.3s ease;
     border: 1px solid var(--border);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .profile-img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .header-info {
@@ -140,42 +193,29 @@ h1 {
     letter-spacing: -0.03em;
 }
 
-.header-icons {
-    display: flex;
-    gap: 10px;
+.header-symbols {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
 }
 
-.header-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s, transform 0.3s;
-    opacity: 0.7;
+.header-symbol-svg {
+    width: 22px;
+    height: 22px;
+    color: var(--text);
+    opacity: 0.6;
+    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
-.header-icon:hover {
-    filter: grayscale(0%);
-    transform: translateY(-2px);
-    opacity: 1;
+.header-symbols:hover .header-symbol-svg {
+    opacity: 0.85;
 }
 
-[data-theme="dark"] .header-icon {
-    filter: invert(1) grayscale(100%);
-}
-
-[data-theme="dark"] .header-icon:hover {
-    filter: invert(1) grayscale(0%);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .header-icon {
-        filter: invert(1) grayscale(100%);
-    }
-    :root:not([data-theme="light"]) .header-icon:hover {
-        filter: invert(1) grayscale(0%);
-    }
+.header-symbol-svg:hover {
+    color: var(--link) !important;
+    opacity: 1 !important;
+    transform: translateY(-2px) scale(1.1);
 }
 
 .tagline {
