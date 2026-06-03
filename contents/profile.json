@@ -1,7 +1,7 @@
 {
     "basics": {
         "name": "Mani Radhakrishnan 🧠 🤖",
-        "tagline": "Building and Understanding Intelligent Systems",
+        "tagline": "Build,Understand and Democratise Intelligence",
         "label": "AI Researcher & Engineer",
         "image": "assets/img/mypic.jpg",
         "summary_file": "contents/bio.md"
@@ -25,7 +25,7 @@
         {
             "role": "Robotics System Engineer",
             "company": "Green Robot Machinery Pvt Ltd",
-            "period": "2019-2023"
+            "period": "2019-2024"
         },
         {
             "role": "Robotics Mechanical Engineer",

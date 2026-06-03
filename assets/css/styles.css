@@ -5,6 +5,7 @@
     --meta: #666666;
     --border: #eeeeee;
     --hover-bg: #f9f9f9;
+    --grid-line: rgba(37, 99, 235, 0.02);
 }
 
 /* Explicit Light Theme */
@@ -14,6 +15,7 @@
     --link: #2563eb;
     --meta: #666666;
     --border: #eeeeee;
+    --grid-line: rgba(37, 99, 235, 0.02);
 }
 
 /* Explicit Dark Theme */
@@ -24,6 +26,7 @@
     --meta: #8b949e;
     --border: #31363c;
     --hover-bg: #161b22;
+    --grid-line: rgba(56, 189, 248, 0.025);
 }
 
 /* Default Dark if system preferred and no explicit theme set */
@@ -35,6 +38,7 @@
         --meta: #8b949e;
         --border: #31363c;
         --hover-bg: #161b22;
+        --grid-line: rgba(56, 189, 248, 0.025);
     }
 }
 
@@ -57,33 +61,30 @@ body {
 }
 
 /* Background Styles */
-.bg-image {
+/* Background Styles */
+.bg-grid {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/cyber_neural_background.png');
-    background-repeat: no-repeat;
+    background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 50px 50px;
     background-position: center center;
-    background-size: cover;
-    opacity: 0.08;
-    filter: invert(0.9) brightness(1.1) contrast(1.1);
+    z-index: -3;
+    pointer-events: none;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -2;
     pointer-events: none;
-    transition: opacity 0.5s ease, filter 0.5s ease;
-}
-
-[data-theme="dark"] .bg-image {
-    opacity: 0.12;
-    filter: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .bg-image {
-        opacity: 0.12;
-        filter: none;
-    }
 }
 
 .bg-glow {
