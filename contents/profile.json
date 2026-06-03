@@ -1,7 +1,7 @@
 {
     "basics": {
         "name": "Mani Radhakrishnan 🧠 🤖",
-        "tagline": "Build,Understand and Democratise Intelligence",
+        "tagline": "Build,Understand and Democratize Intelligence",
         "label": "AI Researcher & Engineer",
         "image": "assets/img/mypic.jpg",
         "summary_file": "contents/bio.md"
@@ -50,22 +50,12 @@
         {
             "id": "blog",
             "title": "Blogs and Thoughts",
-            "items": [
-                {
-                    "name": "Big Corporate vs Country Economy",
-                    "path": "contents/blog/Bigcorporate vs CountryEconomy.txt"
-                }
-            ]
+            "items": []
         },
         {
             "id": "interests",
             "title": "Interests and Reviews",
-            "items": [
-                {
-                    "name": "Books",
-                    "path": "contents/books/book_review"
-                }
-            ]
+            "items": []
         },
         {
             "id": "neuroscience",

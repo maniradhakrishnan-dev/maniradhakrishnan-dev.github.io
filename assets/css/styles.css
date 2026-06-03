@@ -5,7 +5,7 @@
     --meta: #666666;
     --border: #eeeeee;
     --hover-bg: #f9f9f9;
-    --grid-line: rgba(37, 99, 235, 0.02);
+    --grid-line: rgba(37, 99, 235, 0.055);
 }
 
 /* Explicit Light Theme */
@@ -15,7 +15,7 @@
     --link: #2563eb;
     --meta: #666666;
     --border: #eeeeee;
-    --grid-line: rgba(37, 99, 235, 0.02);
+    --grid-line: rgba(37, 99, 235, 0.055);
 }
 
 /* Explicit Dark Theme */

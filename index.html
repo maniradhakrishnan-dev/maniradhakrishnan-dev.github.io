@@ -102,9 +102,9 @@
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
                                (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
                 
-                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.2)';
-                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.04)';
-                const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.08)';
+                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.45)';
+                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.12)';
+                const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.22)';
 
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
