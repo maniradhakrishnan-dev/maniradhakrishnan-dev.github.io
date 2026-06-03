@@ -15,7 +15,6 @@
 
 <body>
     <canvas id="bg-canvas"></canvas>
-    <div class="bg-grid"></div>
     <div class="bg-glow"></div>
     <div class="container">
         <header>
@@ -104,14 +103,9 @@
                 
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-                if (!isDark) {
-                    requestAnimationFrame(() => this.animate());
-                    return;
-                }
-                
-                const particleColor = 'rgba(88, 166, 255, 0.35)';
-                const lineColor = 'rgba(88, 166, 255, 0.05)';
-                const mouseLineColor = 'rgba(88, 166, 255, 0.12)';
+                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.12)';
+                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.03)';
+                const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.06)';
 
                 for (let i = 0; i < this.particles.length; i++) {
                     let p = this.particles[i];
