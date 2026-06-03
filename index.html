@@ -102,11 +102,16 @@
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
                                (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
                 
-                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.45)';
-                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.12)';
-                const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.22)';
-
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                if (!isDark) {
+                    requestAnimationFrame(() => this.animate());
+                    return;
+                }
+                
+                const particleColor = 'rgba(88, 166, 255, 0.35)';
+                const lineColor = 'rgba(88, 166, 255, 0.05)';
+                const mouseLineColor = 'rgba(88, 166, 255, 0.12)';
 
                 for (let i = 0; i < this.particles.length; i++) {
                     let p = this.particles[i];
