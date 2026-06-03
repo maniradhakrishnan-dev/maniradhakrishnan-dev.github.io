@@ -192,32 +192,6 @@ h1 {
     margin: 0;
     letter-spacing: -0.03em;
 }
-
-.header-symbols {
-    display: inline-flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.header-symbol-svg {
-    width: 22px;
-    height: 22px;
-    color: var(--text);
-    opacity: 0.6;
-    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-}
-
-.header-symbols:hover .header-symbol-svg {
-    opacity: 0.85;
-}
-
-.header-symbol-svg:hover {
-    color: var(--link) !important;
-    opacity: 1 !important;
-    transform: translateY(-2px) scale(1.1);
-}
-
 .tagline {
     color: var(--meta);
     font-size: 1rem;
