@@ -1,7 +1,7 @@
 {
     "basics": {
-        "name": "Mani Radhakrishnan 🧠 🤖",
-        "tagline": "Build,Understand and Democratize Intelligence",
+        "name": "Mani Radhakrishnan ",
+        "tagline": "Build,Understand and Democratize Intelligence 🧠🤖",
         "label": "AI Engieer & Researcher",
         "image": "assets/img/mypic_with_specs.png",
         "summary_file": "contents/bio.md"
@@ -18,8 +18,8 @@
             "period": "2026-Present"
         },
         {
-            "role": "AI Researcher / Engineer",
-            "company": "Independent Researcher",
+            "role": "AI Engineer / Researcher",
+            "company": "Self-directed | ERAV2, TSAI",
             "period": "2023-2026"
         },
         {
@@ -41,7 +41,7 @@
             "meta": "8.0 CGPA"
         },
         {
-            "degree": "HSC (Bio, Math)",
+            "degree": "HSC (Bio, Maths)",
             "period": "2011-2013",
             "meta": "93.08 %"
         }

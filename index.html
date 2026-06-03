@@ -86,13 +86,21 @@
                 this.resize();
                 this.particles = [];
                 this.pulses = [];
-                for (let i = 0; i < this.maxParticles; i++) {
+                
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                               (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                
+                // Reduce particle count in light theme to remove digital noise
+                const count = isDark ? 65 : 35;
+                
+                for (let i = 0; i < count; i++) {
                     this.particles.push({
                         x: Math.random() * this.canvas.width,
                         y: Math.random() * this.canvas.height,
-                        vx: (Math.random() - 0.5) * 0.4,
-                        vy: (Math.random() - 0.5) * 0.4,
-                        radius: Math.random() * 1.5 + 1
+                        vx: (Math.random() - 0.5) * 0.55,
+                        vy: (Math.random() - 0.5) * 0.55,
+                        // Light theme particles are slightly larger but will be drawn with very soft opacity
+                        radius: isDark ? (Math.random() * 1.5 + 1) : (Math.random() * 1.8 + 2.0)
                     });
                 }
             }
@@ -124,10 +132,10 @@
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
                                (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
                 
-                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.45)';
-                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.15)';
-                const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.28)';
-                const pulseColor = isDark ? 'rgba(88, 166, 255, 0.8)' : 'rgba(37, 99, 235, 0.7)';
+                // Intelligent Indigo/Violet theme for light mode (increased opacity for visibility)
+                const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(99, 102, 241, 0.30)';
+                const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(99, 102, 241, 0.18)';
+                const pulseColor = isDark ? 'rgba(88, 166, 255, 0.8)' : 'rgba(99, 102, 241, 0.70)';
 
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -143,35 +151,6 @@
                         }
                     }
 
-                    if (this.mouse.x !== null && this.mouse.y !== null) {
-                        let dx = p.x - this.mouse.x;
-                        let dy = p.y - this.mouse.y;
-                        let dist = Math.sqrt(dx * dx + dy * dy);
-
-                        if (dist < 180) {
-                            if (dist > 50) {
-                                let force = (180 - dist) * 0.0003;
-                                p.vx -= dx * force;
-                                p.vy -= dy * force;
-                            } else {
-                                let force = (50 - dist) * 0.015;
-                                p.vx += dx * force;
-                                p.vy += dy * force;
-                            }
-                        }
-                    }
-
-                    const maxSpeed = p.isTemp ? 1.5 : 0.8;
-                    let speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-                    if (speed > maxSpeed) {
-                        p.vx = (p.vx / speed) * maxSpeed;
-                        p.vy = (p.vy / speed) * maxSpeed;
-                    }
-                    p.vx *= 0.98;
-                    p.vy *= 0.98;
-                    p.vx += (Math.random() - 0.5) * 0.015;
-                    p.vy += (Math.random() - 0.5) * 0.015;
-
                     p.x += p.vx;
                     p.y += p.vy;
 
@@ -181,7 +160,7 @@
                     this.ctx.beginPath();
                     this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                     this.ctx.fillStyle = p.isTemp 
-                        ? (isDark ? `rgba(88, 166, 255, ${0.35 * p.life})` : `rgba(37, 99, 235, ${0.45 * p.life})`)
+                        ? (isDark ? `rgba(88, 166, 255, ${0.35 * p.life})` : `rgba(99, 102, 241, ${0.30 * p.life})`)
                         : particleColor;
                     this.ctx.fill();
 
@@ -191,13 +170,13 @@
                         let dy = p.y - p2.y;
                         let dist = Math.sqrt(dx * dx + dy * dy);
 
-                        if (dist < 120) {
+                        if (dist < 140) {
                             let currentLineColor = lineColor;
                             if (p.isTemp || p2.isTemp) {
                                 const currentLife = Math.min(p.life || 1.0, p2.life || 1.0);
                                 currentLineColor = isDark 
                                     ? `rgba(88, 166, 255, ${0.05 * currentLife})` 
-                                    : `rgba(37, 99, 235, ${0.15 * currentLife})`;
+                                    : `rgba(99, 102, 241, ${0.18 * currentLife})`;
                             }
                             this.ctx.beginPath();
                             this.ctx.moveTo(p.x, p.y);
@@ -222,11 +201,11 @@
                         let dy = p.y - this.mouse.y;
                         let dist = Math.sqrt(dx * dx + dy * dy);
 
-                        if (dist < this.mouse.radius) {
+                        if (dist < 140) {
                             this.ctx.beginPath();
                             this.ctx.moveTo(p.x, p.y);
                             this.ctx.lineTo(this.mouse.x, this.mouse.y);
-                            this.ctx.strokeStyle = mouseLineColor;
+                            this.ctx.strokeStyle = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(99, 102, 241, 0.15)';
                             this.ctx.lineWidth = 0.8;
                             this.ctx.stroke();
                         }
@@ -356,6 +335,9 @@
                     const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                     document.documentElement.setAttribute('data-theme', theme);
                     localStorage.setItem('theme', theme);
+                    if (window.bgInstance) {
+                        window.bgInstance.init();
+                    }
                 };
 
             } catch (err) {
@@ -388,7 +370,7 @@
         });
 
         init();
-        new NeuralNetworkBackground();
+        window.bgInstance = new NeuralNetworkBackground();
     </script>
 </body>
 
