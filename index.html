@@ -61,7 +61,8 @@
                 if (!this.canvas) return;
                 this.ctx = this.canvas.getContext('2d');
                 this.particles = [];
-                this.mouse = { x: null, y: null, radius: 150 };
+                this.pulses = [];
+                this.mouse = { x: null, y: null, radius: 180 };
                 this.maxParticles = 60;
 
                 this.init();
@@ -76,11 +77,15 @@
                     this.mouse.x = null;
                     this.mouse.y = null;
                 });
+                window.addEventListener('click', (e) => {
+                    this.createRipple(e.clientX, e.clientY);
+                });
             }
 
             init() {
                 this.resize();
                 this.particles = [];
+                this.pulses = [];
                 for (let i = 0; i < this.maxParticles; i++) {
                     this.particles.push({
                         x: Math.random() * this.canvas.width,
@@ -97,19 +102,76 @@
                 this.canvas.height = window.innerHeight;
             }
 
+            createRipple(x, y) {
+                const numParticles = 8;
+                for (let i = 0; i < numParticles; i++) {
+                    const angle = (i / numParticles) * Math.PI * 2 + Math.random() * 0.5;
+                    const speed = Math.random() * 0.6 + 0.4;
+                    this.particles.push({
+                        x: x,
+                        y: y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        radius: Math.random() * 1.5 + 1.2,
+                        isTemp: true,
+                        life: 1.0,
+                        decay: Math.random() * 0.015 + 0.01
+                    });
+                }
+            }
+
             animate() {
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
                                (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
                 
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
                 const particleColor = isDark ? 'rgba(88, 166, 255, 0.35)' : 'rgba(37, 99, 235, 0.45)';
                 const lineColor = isDark ? 'rgba(88, 166, 255, 0.05)' : 'rgba(37, 99, 235, 0.15)';
                 const mouseLineColor = isDark ? 'rgba(88, 166, 255, 0.12)' : 'rgba(37, 99, 235, 0.28)';
+                const pulseColor = isDark ? 'rgba(88, 166, 255, 0.8)' : 'rgba(37, 99, 235, 0.7)';
+
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
                 for (let i = 0; i < this.particles.length; i++) {
                     let p = this.particles[i];
                     
+                    if (p.isTemp) {
+                        p.life -= p.decay;
+                        if (p.life <= 0) {
+                            this.particles.splice(i, 1);
+                            i--;
+                            continue;
+                        }
+                    }
+
+                    if (this.mouse.x !== null && this.mouse.y !== null) {
+                        let dx = p.x - this.mouse.x;
+                        let dy = p.y - this.mouse.y;
+                        let dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 180) {
+                            if (dist > 50) {
+                                let force = (180 - dist) * 0.0003;
+                                p.vx -= dx * force;
+                                p.vy -= dy * force;
+                            } else {
+                                let force = (50 - dist) * 0.015;
+                                p.vx += dx * force;
+                                p.vy += dy * force;
+                            }
+                        }
+                    }
+
+                    const maxSpeed = p.isTemp ? 1.5 : 0.8;
+                    let speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    if (speed > maxSpeed) {
+                        p.vx = (p.vx / speed) * maxSpeed;
+                        p.vy = (p.vy / speed) * maxSpeed;
+                    }
+                    p.vx *= 0.98;
+                    p.vy *= 0.98;
+                    p.vx += (Math.random() - 0.5) * 0.015;
+                    p.vy += (Math.random() - 0.5) * 0.015;
+
                     p.x += p.vx;
                     p.y += p.vy;
 
@@ -118,7 +180,9 @@
 
                     this.ctx.beginPath();
                     this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    this.ctx.fillStyle = particleColor;
+                    this.ctx.fillStyle = p.isTemp 
+                        ? (isDark ? `rgba(88, 166, 255, ${0.35 * p.life})` : `rgba(37, 99, 235, ${0.45 * p.life})`)
+                        : particleColor;
                     this.ctx.fill();
 
                     for (let j = i + 1; j < this.particles.length; j++) {
@@ -128,12 +192,28 @@
                         let dist = Math.sqrt(dx * dx + dy * dy);
 
                         if (dist < 120) {
+                            let currentLineColor = lineColor;
+                            if (p.isTemp || p2.isTemp) {
+                                const currentLife = Math.min(p.life || 1.0, p2.life || 1.0);
+                                currentLineColor = isDark 
+                                    ? `rgba(88, 166, 255, ${0.05 * currentLife})` 
+                                    : `rgba(37, 99, 235, ${0.15 * currentLife})`;
+                            }
                             this.ctx.beginPath();
                             this.ctx.moveTo(p.x, p.y);
                             this.ctx.lineTo(p2.x, p2.y);
-                            this.ctx.strokeStyle = lineColor;
+                            this.ctx.strokeStyle = currentLineColor;
                             this.ctx.lineWidth = 0.8;
                             this.ctx.stroke();
+
+                            if (Math.random() < 0.0003 && this.pulses.length < 15 && !p.isTemp && !p2.isTemp) {
+                                this.pulses.push({
+                                    from: p,
+                                    to: p2,
+                                    progress: 0,
+                                    speed: Math.random() * 0.02 + 0.01
+                                });
+                            }
                         }
                     }
 
@@ -151,6 +231,27 @@
                             this.ctx.stroke();
                         }
                     }
+                }
+
+                for (let k = this.pulses.length - 1; k >= 0; k--) {
+                    let pulse = this.pulses[k];
+                    pulse.progress += pulse.speed;
+
+                    if (pulse.progress >= 1) {
+                        this.pulses.splice(k, 1);
+                        continue;
+                    }
+
+                    let px = pulse.from.x + (pulse.to.x - pulse.from.x) * pulse.progress;
+                    let py = pulse.from.y + (pulse.to.y - pulse.from.y) * pulse.progress;
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+                    this.ctx.fillStyle = pulseColor;
+                    this.ctx.shadowBlur = 3;
+                    this.ctx.shadowColor = pulseColor;
+                    this.ctx.fill();
+                    this.ctx.shadowBlur = 0;
                 }
 
                 requestAnimationFrame(() => this.animate());
