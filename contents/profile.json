@@ -4,39 +4,28 @@
         "tagline": "Building and Understanding Intelligent Systems",
         "label": "AI Researcher & Engineer",
         "image": "assets/img/mypic.jpg",
-        "summary_file": "contents/bio.txt"
+        "summary_file": "contents/bio.md"
     },
     "socials": {
         "mail": "maniradhakrishnan.search@gmail.com",
-        "github": "maniradhakrishnan-dev.github.io",
+        "github": "https://github.com/maniradhakrishnan-dev",
         "linkedin": "www.linkedin.com/in/mani-radhakrishnan"
     },
-    "content_sections": [
-        {
-            "id": "blog",
-            "title": "Blog & Thoughts",
-            "items": [
-                { "name": "Big Corporate vs Country Economy", "path": "contents/blog/Bigcorporate vs CountryEconomy.txt" }
-            ]
-        },
-        {
-            "id": "interests",
-            "title": "Interests & Reviews",
-            "items": [
-                { "name": "Book Reviews", "path": "contents/books/book_review" }
-            ]
-        }
-    ],
     "experience": [
+        {
+            "role": "Agentic AI Engineer",
+            "company": "In-Progress",
+            "period": "2026-Present"
+        },
         {
             "role": "AI Researcher / Engineer",
             "company": "Self-Directed",
-            "period": "2024-Present"
+            "period": "2023-2026"
         },
         {
             "role": "Robotics System Engineer",
             "company": "Green Robot Machinery Pvt Ltd",
-            "period": "2019-2024"
+            "period": "2019-2023"
         },
         {
             "role": "Robotics Mechanical Engineer",
@@ -46,8 +35,57 @@
     ],
     "education": [
         {
-            "degree": "B.Tech in Mechanical Engineering",
-            "score": "8.0 CGPA"
+            "degree": "B.E - Mechanical Engineering",
+            "school": "Anna University",
+            "period": "2013-2017",
+            "meta": "8.0 CGPA"
+        },
+        {
+            "degree": "HSC (Bio, Math)",
+            "school": "Govt.Boys.Hr.Sec.School, Kallakurichi",
+            "period": "2011-2013",
+            "meta": "93.08 %"
+        }
+    ],
+    "content_sections": [
+        {
+            "id": "blog",
+            "title": "Blogs and Thoughts",
+            "items": [
+                { "name": "Big Corporate vs Country Economy", "path": "contents/blog/Bigcorporate vs CountryEconomy.txt" }
+            ]
+        },
+        {
+            "id": "interests",
+            "title": "Interests and Reviews",
+            "items": [
+                { "name": "Books", "path": "contents/books/book_review" }
+            ]
+        },
+        {
+            "id": "neuroscience",
+            "title": "Neuroscience and AI",
+            "items": []
+        },
+        {
+            "id": "biology",
+            "title": "Biology",
+            "items": []
+        },
+        {
+            "id": "blockchain",
+            "title": "Blockchain",
+            "items": []
+        },
+        {
+            "id": "quantum",
+            "title": "Quantum Computing",
+            "items": []
+        },
+        {
+            "id": "economics",
+            "title": "Economics",
+            "items": []
         }
     ]
 }

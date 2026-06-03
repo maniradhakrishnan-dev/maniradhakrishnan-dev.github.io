@@ -16,10 +16,22 @@
 <body>
     <div class="container">
         <header>
+            <div class="header-top">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                    <span class="sun">☀️</span>
+                    <span class="moon">🌙</span>
+                </button>
+            </div>
             <div class="profile-container">
                 <img id="profile-pic" src="" alt="Mani Radhakrishnan" class="profile-img">
                 <div class="header-info">
-                    <h1 id="name"></h1>
+                    <div class="name-container">
+                        <h1 id="name"></h1>
+                        <div class="header-icons">
+                            <img src="assets/img/brain.jpeg" alt="Brain Icon" class="header-icon">
+                            <img src="assets/img/nn.svg" alt="Neural Network Icon" class="header-icon">
+                        </div>
+                    </div>
                     <p id="tagline" class="tagline"></p>
                     <div class="social-links" id="social-links"></div>
                 </div>
@@ -28,9 +40,9 @@
 
         <section id="bio" class="main-text"></section>
 
-        <div id="content-areas">
-            <!-- Categories will be injected here -->
-        </div>
+        <div id="experience-area"></div>
+        <div id="education-area"></div>
+        <div id="content-areas"></div>
 
         <footer>
             <p id="footer-text"></p>
@@ -53,7 +65,8 @@
 
                 document.getElementById('name').textContent = data.basics.name;
                 document.getElementById('tagline').textContent = data.basics.tagline;
-                document.getElementById('profile-pic').src = data.basics.image;
+                // Cache-buster added here
+                document.getElementById('profile-pic').src = data.basics.image + '?v=' + Date.now();
                 document.getElementById('footer-text').textContent = `© ${new Date().getFullYear()} ${data.basics.name}`;
 
                 // Setup Socials
@@ -70,10 +83,44 @@
                 const bioRes = await fetch(data.basics.summary_file);
                 if (bioRes.ok) {
                     const bioRaw = await bioRes.text();
-                    document.getElementById('bio').textContent = bioRaw.trim();
+                    const bioContainer = document.getElementById('bio');
+                    // Clean up Markdown headers like # BIO
+                    const cleanRaw = bioRaw.replace(/^#+\s*BIO\s*/i, '').trim();
+                    bioContainer.innerHTML = cleanRaw
+                        .split('\n\n')
+                        .map(para => `<p>${para.replace(/\n/g, ' ')}</p>`)
+                        .join('');
                 }
 
-                // Setup Content Sections dynamically from profile.json
+                // Setup Experience section
+                if (data.experience) {
+                    const expArea = document.getElementById('experience-area');
+                    const section = document.createElement('section');
+                    section.innerHTML = `<h2>Experience</h2><ul id="exp-list"></ul>`;
+                    expArea.appendChild(section);
+                    const list = section.querySelector('ul');
+                    data.experience.forEach(exp => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="item-meta">${exp.period}</span> <span><strong>${exp.role}</strong>, ${exp.company}</span>`;
+                        list.appendChild(li);
+                    });
+                }
+
+                // Setup Education section
+                if (data.education) {
+                    const eduArea = document.getElementById('education-area');
+                    const section = document.createElement('section');
+                    section.innerHTML = `<h2>Education</h2><ul id="edu-list"></ul>`;
+                    eduArea.appendChild(section);
+                    const list = section.querySelector('ul');
+                    data.education.forEach(edu => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="item-meta">${edu.period || edu.score}</span> <span><strong>${edu.degree}</strong>, ${edu.school || ''} ${edu.meta ? `(${edu.meta})` : ''}</span>`;
+                        list.appendChild(li);
+                    });
+                }
+
+                // Setup Content Sections
                 const contentAreas = document.getElementById('content-areas');
                 if (data.content_sections) {
                     data.content_sections.forEach(cat => {
@@ -85,39 +132,30 @@
                         contentAreas.appendChild(section);
                         
                         const list = section.querySelector('ul');
-                        cat.items.forEach(item => {
+                        if (cat.items && cat.items.length > 0) {
+                            cat.items.forEach(item => {
+                                const li = document.createElement('li');
+                                li.innerHTML = `<a href="#" class="item-link" onclick="event.preventDefault(); loadContent('${item.path}')">${item.name}</a>`;
+                                list.appendChild(li);
+                            });
+                        } else {
                             const li = document.createElement('li');
-                            li.innerHTML = `<a href="#" class="item-link" onclick="event.preventDefault(); loadContent('${item.path}')">${item.name}</a>`;
+                            li.innerHTML = `<span class="item-meta">Coming soon...</span>`;
                             list.appendChild(li);
-                        });
+                        }
                     });
                 }
 
-                // Add Experience section
-                if (data.experience) {
-                    const expSection = document.createElement('section');
-                    expSection.innerHTML = `<h2>Experience</h2><ul id="exp-list"></ul>`;
-                    contentAreas.appendChild(expSection);
-                    const expList = expSection.querySelector('ul');
-                    data.experience.forEach(exp => {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<span class="item-meta">${exp.period}</span> <span><strong>${exp.role}</strong>, ${exp.company}</span>`;
-                        expList.appendChild(li);
-                    });
-                }
+                // Theme Toggle Logic
+                const themeBtn = document.getElementById('theme-toggle');
+                const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', currentTheme);
 
-                // Add Education section
-                if (data.education) {
-                    const eduSection = document.createElement('section');
-                    eduSection.innerHTML = `<h2>Education</h2><ul id="edu-list"></ul>`;
-                    contentAreas.appendChild(eduSection);
-                    const eduList = eduSection.querySelector('ul');
-                    data.education.forEach(edu => {
-                        const li = document.createElement('li');
-                        li.innerHTML = `<span class="item-meta">${edu.score}</span> <span>${edu.degree}</span>`;
-                        eduList.appendChild(li);
-                    });
-                }
+                themeBtn.onclick = () => {
+                    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('theme', theme);
+                };
 
             } catch (err) {
                 console.error("Initialization Error:", err);

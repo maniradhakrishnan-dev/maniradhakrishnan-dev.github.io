@@ -2,8 +2,30 @@ I am trying to setup a website using github ,I want to host my  Profile there.I 
 The insipiration comes from andrej karapthy website
 I need a webiste simple looking but hosting my journey there inlcuding putting my blogs ,review ,thoughts etc
 
-
 Create a webiste almost looks like a andrej karapthy website using the provided details.
 
 
+#The Web looking Order
+Bio,
 
+Experience,
+
+Education,
+
+#You are free to decide whether we can put this down or in side
+I am going to write my thoughts on each of these areas
+
+Blogs and Thoughts
+
+Intersts and Reviews 
+    Books
+
+Neuroscience and AI
+
+Biology 
+
+Blockchain
+
+Quantum Computing
+
+Economics
