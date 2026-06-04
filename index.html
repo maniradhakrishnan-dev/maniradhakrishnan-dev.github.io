@@ -314,9 +314,14 @@
                         const list = section.querySelector('ul');
                         if (cat.items && cat.items.length > 0) {
                             cat.items.forEach(item => {
-                                const li = document.createElement('li');
-                                li.innerHTML = `<a href="#" class="item-link" onclick="event.preventDefault(); loadContent('${item.path}')">${item.name}</a>`;
-                                list.appendChild(li);
+                                 const li = document.createElement('li');
+                                 const isExternal = item.path && (item.path.startsWith('http') || item.path.startsWith('mailto:'));
+                                 if (isExternal) {
+                                     li.innerHTML = `<a href="${item.path}" target="_blank" rel="noopener noreferrer" class="item-link">${item.name}</a>`;
+                                 } else {
+                                     li.innerHTML = `<a href="#" class="item-link" onclick="event.preventDefault(); loadContent('${item.path}')">${item.name}</a>`;
+                                 }
+                                 list.appendChild(li);
                             });
                         } else {
                             const li = document.createElement('li');

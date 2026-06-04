@@ -54,6 +54,10 @@
                 {
                     "name": "Is Information more fundamental than physics?",
                     "path": "contents/blog/Is Information fundamental than physics.txt"
+                },
+                {
+                    "name": "Universal Basic Income",
+                    "path": "contents/blog/Universal Basic Income.txt"
                 }
             ]
         },
@@ -89,6 +93,16 @@
                 {
                     "name": "Big Corporations are all you need!",
                     "path": "contents/Economics/Big Corporations are all you need.txt"
+                }
+            ]
+        },
+        {
+            "id": "featured-projects",
+            "title": "Featured Projects",
+            "items": [
+                {
+                    "name": "Featured Project Video",
+                    "path": "https://youtu.be/z0s7OfBrV70"
                 }
             ]
         }
