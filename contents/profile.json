@@ -50,7 +50,12 @@
         {
             "id": "blog",
             "title": "Blogs and Thoughts",
-            "items": []
+            "items": [
+                {
+                    "name": "Is Information more fundamental than physics?",
+                    "path": "contents/blog/Is Information fundamental than physics.txt"
+                }
+            ]
         },
         {
             "id": "interests",
