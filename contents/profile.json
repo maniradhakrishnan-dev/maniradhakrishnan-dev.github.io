@@ -80,7 +80,12 @@
         {
             "id": "economics",
             "title": "Economics",
-            "items": []
+            "items": [
+                {
+                    "name": "Big Corporations are all you need!",
+                    "path": "contents/Economics/Big Corporations are all you need.txt"
+                }
+            ]
         }
     ]
 }
